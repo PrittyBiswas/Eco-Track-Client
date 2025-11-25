@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const Profile = () => {
-    const { user, loginUser } = useContext(AuthContext);
+    const { user, updateUser } = useContext(AuthContext);
+
     const [formData, setFormData] = useState({
         name: user?.name || "",
         email: user?.email || "",
@@ -15,13 +17,21 @@ const Profile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        loginUser({
+
+        const updatedProfile = {
             ...user,
             name: formData.name,
             email: formData.email,
             profileImage: formData.profileImage,
+        };
+
+        updateUser(updatedProfile);
+        Swal.fire({
+            icon: "success",
+            title: " Successfully!",
+            text: "Your Profile has been Changed",
+            confirmButtonColor: "#16a34a",
         });
-        alert("Profile updated successfully!");
     };
 
     return (
@@ -29,7 +39,6 @@ const Profile = () => {
             <h2 className="text-2xl font-bold text-green-700 mb-6 text-center">Edit Profile</h2>
 
             <form className="space-y-5" onSubmit={handleSubmit}>
-                {/* Profile Image Preview */}
                 <div className="flex justify-center mb-4">
                     <img
                         src={formData.profileImage || "https://via.placeholder.com/100"}
@@ -38,46 +47,39 @@ const Profile = () => {
                     />
                 </div>
 
-                {/* Name */}
                 <div className="flex flex-col">
                     <label className="text-gray-700 mb-1">Full Name</label>
                     <input
                         type="text"
                         name="name"
-                        placeholder="Your Name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full border border-green-300 rounded-lg px-4 py-2"
                     />
                 </div>
 
-                {/* Email */}
                 <div className="flex flex-col">
                     <label className="text-gray-700 mb-1">Email</label>
                     <input
                         type="email"
                         name="email"
-                        placeholder="Your Email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full border border-green-300 rounded-lg px-4 py-2"
                     />
                 </div>
 
-                {/* Profile Image URL */}
                 <div className="flex flex-col">
                     <label className="text-gray-700 mb-1">Profile Image URL</label>
                     <input
                         type="text"
                         name="profileImage"
-                        placeholder="Enter your profile image URL"
                         value={formData.profileImage}
                         onChange={handleChange}
-                        className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full border border-green-300 rounded-lg px-4 py-2"
                     />
                 </div>
 
-                {/* Submit */}
                 <button
                     type="submit"
                     className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition"

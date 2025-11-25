@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import logo from "../assets/logo.png"
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -12,10 +13,14 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-            .then((result) => {
-                console.log("Google Login Success:", result.user);
-                alert("Successfully Login!");
-                navigate("/"); // redirect to home
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Logged Out",
+                    text: "You have been logged in successfully.",
+                    confirmButtonColor: "green"
+                });
+                navigate("/");
             })
             .catch((error) => {
                 console.log("Google Login Error:", error);

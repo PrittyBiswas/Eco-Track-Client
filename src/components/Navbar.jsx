@@ -1,15 +1,25 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import Logo from '../assets/logo.png';
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
         logOut()
-            .then(() => alert("Logged out successfully!"))
+            .then(() => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Logged Out",
+                    text: "You have been logged out successfully.",
+                    confirmButtonColor: "red"
+                });
+                navigate("/login");
+            })
             .catch((error) => console.error("Logout Error:", error));
     };
 
@@ -27,20 +37,21 @@ const Navbar = () => {
                     <span className="text-green-700 font-bold text-xl tracking-wide">EcoTrack</span>
                 </div>
 
-                {/* Center - All Navigation Links */}
+                {/* Center Nav */}
                 <ul className="flex gap-8 justify-center flex-1">
                     <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
                     <li><NavLink to="/AllChallenges" className={navLinkClass}>Challenges</NavLink></li>
+
                     {user && (
                         <>
                             <li><NavLink to="/UserChallenges" className={navLinkClass}>User Challenges</NavLink></li>
                             <li><NavLink to="/events" className={navLinkClass}>Events</NavLink></li>
-                            <li><NavLink to="/activities" className={navLinkClass} > My Activities </NavLink></li>
+                            <li><NavLink to="/activities" className={navLinkClass}>My Activities</NavLink></li>
                         </>
                     )}
                 </ul>
 
-                {/* Right - User Info */}
+                {/* Right */}
                 <div className="flex items-center gap-4">
                     {user ? (
                         <>
@@ -48,7 +59,7 @@ const Navbar = () => {
                                 <img
                                     src={user.profileImage || "https://via.placeholder.com/40"}
                                     alt={user.name}
-                                    className="w-10 h-10 rounded-full border-2 border-green-600 cursor-pointer"
+                                    className="w-10 h-10 rounded-full border-2 border-green-600"
                                 />
                             </Link>
 

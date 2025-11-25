@@ -25,6 +25,7 @@ import Join from './Pages/Join.jsx';
 import ActivitiesProvider from './context/ActivitiesProvider.jsx';
 import ChallengesDetails from './Pages/ChallengesDetails.jsx';
 import EventsDetails from './Pages/EventsDetails.jsx';
+import ForgotPassword from './Pages/ForgotPassword.jsx';
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,11 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />
+      },
+
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword></ForgotPassword>
       }
 
     ]

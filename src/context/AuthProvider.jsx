@@ -18,11 +18,12 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     // Create user with email/password and optional profileImage
+
     const createUser = async (email, password, profileImage) => {
         setLoading(true);
         const result = await createUserWithEmailAndPassword(auth, email, password);
 
-        // Update displayName or photoURL if profileImage provided
+
         if (profileImage) {
             await updateProfile(result.user, { photoURL: profileImage });
         }
@@ -49,8 +50,11 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signOut(auth).finally(() => setLoading(false));
     };
+    const updateUser = (updatedUser) => {
+        setUser(updatedUser);
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+    };
 
-    
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -67,7 +71,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         signInUser,
         signInWithGoogle,
-        logOut
+        logOut,
+        updateUser,
     };
 
     return (
