@@ -26,6 +26,7 @@ import ActivitiesProvider from './context/ActivitiesProvider.jsx';
 import ChallengesDetails from './Pages/ChallengesDetails.jsx';
 import EventsDetails from './Pages/EventsDetails.jsx';
 import ForgotPassword from './Pages/ForgotPassword.jsx';
+import NotFound from './components/NotFound.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,27 +38,27 @@ const router = createBrowserRouter([
         Component: Home
       },
       {
-        path: 'Challenges',
+        path: "Challenges",
         Component: Challenges
       },
       {
-        path: 'login',
+        path: "login",
         Component: Login
       },
       {
-        path: 'register',
+        path: "register",
         Component: Register
       },
 
       // User Challenges
       {
-        path: 'UserChallenges',
+        path: "UserChallenges",
         element: <UserChallenges />
       },
 
       // All Challenges
       {
-        path: 'AllChallenges',
+        path: "AllChallenges",
         Component: AllChallenges
       },
 
@@ -89,12 +90,14 @@ const router = createBrowserRouter([
           return data;
         }
       },
+
       {
         path: "activities",
         Component: MyActivities
       },
+
       {
-        path: 'join',
+        path: "join",
         Component: Join
       },
 
@@ -106,9 +109,14 @@ const router = createBrowserRouter([
 
       {
         path: "/forgot-password",
-        element: <ForgotPassword></ForgotPassword>
-      }
+        element: <ForgotPassword />
+      },
 
+      // ⭐ 404 PAGE CATCH-ALL ROUTE
+      {
+        path: "*",
+        element: <NotFound></NotFound>
+      }
     ]
   },
 ]);

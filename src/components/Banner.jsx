@@ -10,26 +10,48 @@ const banners = [Banner1, Banner2, Banner3];
 
 const Banner = () => {
     return (
-        <Carousel showThumbs={false} autoPlay infiniteLoop showStatus={false} className="relative">
+        <Carousel
+            showThumbs={false}
+            autoPlay ={true}
+            infiniteLoop={true}
+            showStatus={false}
+            className="relative"
+        >
             {banners.map((banner, index) => (
-                <div key={index} className="relative h-[400px] md:h-[500px] lg:h-[600px]">
+                <div
+                    key={index}
+                    className="w-full relative h-[350px] sm:h-[420px] md:h-[520px] lg:h-[650px]"
+                >
                     {/* Image */}
-                    <img src={banner} className="w-full h-full object-cover brightness-75" />
-
-                    {/* Dark overlay
-                    <div className="absolute inset-0 bg-black bg-opacity-30 "></div> */}
+                    <img
+                        src={banner}
+                        className="w-full h-full object-cover brightness-75"
+                    />
 
                     {/* Banner Text */}
-                    <div className="absolute bottom-10 left-8 md:bottom-20 md:left-10 z-10 text-white max-w-lg space-y-6">
-                        <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+                    <div
+                        className="
+                        absolute bottom-8 sm:bottom-12 md:bottom-20
+                        left-4 sm:left-10 md:left-20 lg:left-32
+                        text-white z-10
+                        
+                        w-[90%] sm:w-[70%] md:w-[45%] 
+                        space-y-4 sm:space-y-5 md:space-y-6
+                        
+                        text-center sm:text-left
+                        "
+                    >
+                        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">
                             Plants make a positive impact <br /> on your environment.
                         </h1>
-                        <p className="text-lg">
+
+                        <p className="text-sm sm:text-base md:text-lg">
                             Provide your house & office space with the right plants and let our
                             plant care team keep them flourishing.
                         </p>
 
-                        <div className="flex items-center gap-4 md:gap-6">
+                        {/* Buttons */}
+                        <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
                             <button className="btn bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-2 md:py-3 rounded-full">
                                 Book Now
                             </button>
@@ -38,15 +60,25 @@ const Banner = () => {
                             </button>
                         </div>
 
-                        <div className="flex items-center gap-4 md:gap-6">
-                            <a href="#" className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300">
-                                <FaFacebookF size={20} />
+                        {/* Social Icons */}
+                        <div className="flex items-center justify-center sm:justify-start gap-4 md:gap-6">
+                            <a
+                                href="#"
+                                className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300"
+                            >
+                                <FaFacebookF size={18} />
                             </a>
-                            <a href="#" className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300">
-                                <FaInstagram size={20} />
+                            <a
+                                href="#"
+                                className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300"
+                            >
+                                <FaInstagram size={18} />
                             </a>
-                            <a href="#" className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300">
-                                <FaTwitter size={20} />
+                            <a
+                                href="#"
+                                className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300"
+                            >
+                                <FaTwitter size={18} />
                             </a>
                         </div>
                     </div>
