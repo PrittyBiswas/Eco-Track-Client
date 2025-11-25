@@ -1,11 +1,9 @@
-import React, { useContext, } from 'react';
+
 import { useLoaderData, Link } from 'react-router';
-import { ActivitiesContext } from '../context/ActivitiesProvider';
+
 
 const EventsDetails = () => {
     const event = useLoaderData();
-    const { handleJoin } = useContext(ActivitiesContext);
-    handleJoin(event, "Event");
 
 
     if (!event)
@@ -32,12 +30,12 @@ const EventsDetails = () => {
                     </p>
 
                     {/* JOIN NOW BUTTON */}
-                    <button
-                        onClick={handleJoin}
+                    <Link
+                        to="/join"
                         className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
                     >
                         Join Now
-                    </button>
+                    </Link>
 
                     {/* GO BACK BUTTON */}
                     <Link

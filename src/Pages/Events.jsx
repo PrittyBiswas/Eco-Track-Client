@@ -41,7 +41,7 @@ const Events = () => {
 
                             {/* Event Details Button */}
                             <Link
-                                to={`/eventDetails/${event._id}`} // use the correct dynamic ID
+                                to={`/eventDetails/${event._id}`} 
                                 className="mt-4 inline-block w-full text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
                             >
                                 See Details

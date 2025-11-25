@@ -1,13 +1,9 @@
 import { Link, useLoaderData } from "react-router";
-import { useContext } from "react";
-import { ActivitiesContext } from "../context/ActivitiesProvider";
 
 
 const ChallengesDetails = () => {
     const challenge = useLoaderData();
 
-    const { handleJoin } = useContext(ActivitiesContext);
-    handleJoin(challenge, "Challenge");
 
 
 
@@ -44,12 +40,12 @@ const ChallengesDetails = () => {
                     </p>
 
                     {/* JOIN NOW BUTTON */}
-                    <button
-                        onClick={() => handleJoin(challenge)}
+                    <Link
+                        to="/join"
                         className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
                     >
                         Join Now
-                    </button>
+                    </Link>
 
                     {/* GO BACK BUTTON */}
                     <Link

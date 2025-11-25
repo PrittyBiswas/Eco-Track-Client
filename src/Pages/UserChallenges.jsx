@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const UserChallenges = () => {
     const [userChallenges, setUserChallenges] = useState([]);
@@ -30,7 +31,9 @@ const UserChallenges = () => {
             {userChallenges.length === 0 ? (
                 <p className="text-center text-gray-600">No challenges found.</p>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+                <Link 
+                to="/join"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
                     {userChallenges.map((challenge) => (
                         <div
                             key={challenge._id}
@@ -44,7 +47,7 @@ const UserChallenges = () => {
                             <p className="font-medium mt-2">Duration: {challenge.joinDate} days</p>
                         </div>
                     ))}
-                </div>
+                </Link>
             )}
         </div>
     );

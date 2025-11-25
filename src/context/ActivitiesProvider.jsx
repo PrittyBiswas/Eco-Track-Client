@@ -1,9 +1,10 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const ActivitiesContext = createContext();
 
-export const ActivitiesProvider = ({ children }) => {
+const ActivitiesProvider = ({ children }) => {
     const [activities, setActivities] = useState(() => {
+        // Load from localStorage on first render
         const saved = localStorage.getItem("activities");
         return saved ? JSON.parse(saved) : [];
     });
@@ -12,33 +13,19 @@ export const ActivitiesProvider = ({ children }) => {
         localStorage.setItem("activities", JSON.stringify(activities));
     }, [activities]);
 
-
-    const handleJoin = (item, type) => {
-        const alreadyJoined = activities.find(a => a.id === item._id);
-        if (alreadyJoined) {
-            alert("You already joined this activity!");
-            return;
-        }
-
-        const newActivity = {
-            id: item._id,
-            title: item.title,
-            type: type, 
-            joinedAt: new Date().toLocaleString(),
-        };
-
-        setActivities([...activities, newActivity]);
-        alert("Added to your activities!");
+    const handleJoin = (data) => {
+        setActivities((prev) => [...prev, data]);
     };
 
-    const handleRemove = (id) => {
-        setActivities(activities.filter(a => a.id !== id));
-        alert("Removed from your activities!");
+    const removeActivity = (index) => {
+        setActivities((prev) => prev.filter((_, i) => i !== index));
     };
 
     return (
-        <ActivitiesContext.Provider value={{ activities, handleJoin, handleRemove }}>
+        <ActivitiesContext.Provider value={{ activities, handleJoin, removeActivity }}>
             {children}
         </ActivitiesContext.Provider>
     );
 };
+
+export default ActivitiesProvider;

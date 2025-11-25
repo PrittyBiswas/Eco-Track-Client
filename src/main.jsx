@@ -14,14 +14,17 @@ import Register from './Pages/Register.jsx';
 
 import AuthProvider from './context/AuthProvider.jsx';
 import UserChallenges from './Pages/UserChallenges.jsx';
-import ChallengesDetails from './Pages/ChallengesDetails.jsx';
+
 import AllChallenges from './Pages/AllChallenges.jsx';
 
 import Events from './Pages/Events.jsx';
-import EventsDetails from './Pages/EventsDetails.jsx';
 import Profile from './components/Profile.jsx';
 import MyActivities from './Pages/MyActivities.jsx';
-import { ActivitiesProvider } from './context/ActivitiesProvider.jsx';
+
+import Join from './Pages/Join.jsx';
+import ActivitiesProvider from './context/ActivitiesProvider.jsx';
+import ChallengesDetails from './Pages/ChallengesDetails.jsx';
+import EventsDetails from './Pages/EventsDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -89,12 +92,17 @@ const router = createBrowserRouter([
         path: "activities",
         Component: MyActivities
       },
+      {
+        path: 'join',
+        Component: Join
+      },
 
       // Profile Page
       {
         path: "/profile",
         element: <Profile />
       }
+
     ]
   },
 ]);
@@ -102,11 +110,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-
       <ActivitiesProvider>
         <RouterProvider router={router} />
       </ActivitiesProvider>
-
     </AuthProvider>
   </StrictMode>,
 )
