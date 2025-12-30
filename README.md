@@ -1,16 +1,37 @@
-# React + Vite
+📌 Project Description (Short Overview)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EcoTrack is a web-based application designed to help users track and manage eco-friendly activities and environmental impact. The platform focuses on promoting sustainability by allowing users to monitor actions, view insights, and stay motivated toward a greener lifestyle. The application features a modern, responsive UI and smooth user experience built with React.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 Live Project Link
 
-## React Compiler
+Client: https://eco-track-client-iota.vercel.app/
+Server: https://eco-web-server.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Technologies Used**
+Frontend: React.js, Vite
+Styling: Tailwind CSS
+State Management: React Hooks
+Routing: React Router DOM
+HTTP Requests: Axios / Fetch API
+Backend : Node.js
+Database : MongoDB
+Deployment: Vercel
 
-## Expanding the ESLint configuration
+**Core Features**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+User-friendly and responsive UI
+Track and manage eco-friendly activities
+Dynamic data rendering
+Clean and modern design
+Optimized performance with Vite
+Mobile, tablet, and desktop responsive
+
+**Dependencies**
+Main dependencies used in this project:
+react
+react-dom
+react-router-dom
+axios
+tailwindcss
+vite
