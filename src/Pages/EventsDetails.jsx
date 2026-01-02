@@ -4,6 +4,7 @@ import { useLoaderData, Link } from 'react-router';
 
 const EventsDetails = () => {
     const event = useLoaderData();
+    
 
 
     if (!event)

@@ -5,6 +5,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import Banner1 from '../assets/Heroimg1.jpg';
 import Banner2 from '../assets/HeroImg2.jpg';
 import Banner3 from '../assets/HeroImg3.jpg';
+import { Link } from 'react-router';
 
 const banners = [Banner1, Banner2, Banner3];
 
@@ -12,7 +13,7 @@ const Banner = () => {
     return (
         <Carousel
             showThumbs={false}
-            autoPlay ={true}
+            autoPlay={true}
             infiniteLoop={true}
             showStatus={false}
             className="relative"
@@ -52,30 +53,35 @@ const Banner = () => {
 
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
-                            <button className="btn bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-2 md:py-3 rounded-full">
+                            <Link to="/AllChallenges" className="btn bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-2 md:py-3 rounded-full">
                                 Book Now
-                            </button>
-                            <button className="font-semibold text-gray-200 hover:text-green-200 transition duration-300">
+                            </Link>
+
+
+                            <Link to="/events" className="group flex items-center gap-2 px-4 py-2 border-2 border-green-600 text-white font-semibold rounded-2xl shadow-md hover:bg-green-600 transition duration-300">
                                 Know More
-                            </button>
+                                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                            </Link>
+
+
                         </div>
 
                         {/* Social Icons */}
                         <div className="flex items-center justify-center sm:justify-start gap-4 md:gap-6">
                             <a
-                                href="#"
+                                href="https://www.facebook.com/prittybiswas090"
                                 className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300"
                             >
                                 <FaFacebookF size={18} />
                             </a>
                             <a
-                                href="#"
+                                href="https://www.instagram.com/prittybiswas090/"
                                 className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300"
                             >
                                 <FaInstagram size={18} />
                             </a>
                             <a
-                                href="#"
+                                href="https://x.com/prittybiswas090"
                                 className="bg-green-600 hover:bg-green-700 p-3 rounded-full text-white transition duration-300"
                             >
                                 <FaTwitter size={18} />

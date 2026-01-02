@@ -29,15 +29,15 @@ const Join = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col gap-15 my-15 lg:flex-row-reverse bg-white p-10 rounded-xl shadow-lg">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Join the Activity!</h1>
-          <p className="py-6">
+          <h1 className="text-5xl text-green-500 font-bold">Join the Activity!</h1>
+          <p className="py-6 text-green-700">
             Fill in your details below to join this event or challenge.
           </p>
         </div>
 
-        <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+        <div className="card bg-base-100 w-full max-w-sm ">
           <div className="card-body">
             <fieldset className="fieldset">
               <label className="label">Full Name</label>
@@ -80,7 +80,7 @@ const Join = () => {
 
               <button
                 onClick={onSubmit}
-                className="btn btn-success mt-4 w-full"
+                className="btn bg-green-500 mt-4 w-full"
               >
                 Join Now
               </button>
@@ -88,7 +88,7 @@ const Join = () => {
 
             <p className="mt-4 text-center text-sm text-gray-500">
               Already joined?{" "}
-              <Link to="/activities" className="link link-hover text-green-600">
+              <Link to="/activities" className="link link-hover text-green-700">
                 View My Activities
               </Link>
             </p>
